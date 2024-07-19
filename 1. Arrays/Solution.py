@@ -27,9 +27,20 @@ class Solution:
             if my_s[item] != my_t[item]:
                 return False
         return True
-        
+    
+    # return the index of item that make up the two sum  
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        # keep track of current : missing pair to make the target
+        my_dict = {}
+        for i in range(len(nums)):
+            missing = target - nums[i]
+            if missing in my_dict:
+                return [my_dict[missing], i]
+            my_dict[nums[i]] = i
+        return [] # default not found
     
     
 run = Solution()
 print(run.hasDuplicate([1, 2, 3]))
 print(run.isAnagram("jar", "jam"))
+print(run.twoSum([3, 4, 5, 6], 11))
