@@ -43,6 +43,7 @@ class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         # brute force approach
         # store ascii total to [] 
+        # might be unreliable due to false positive situation.
         my_dict = {}
         for item in strs:
             current = sum(ord(x) for x in item)
@@ -60,3 +61,7 @@ print(run.hasDuplicate([1, 2, 3]))
 print(run.isAnagram("jar", "jam"))
 print(run.twoSum([3, 4, 5, 6], 11))
 print(run.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
+
+word = "bc"
+current = sum(ord(x) for x in word)
+print(current)
