@@ -39,8 +39,24 @@ class Solution:
             my_dict[nums[i]] = i
         return [] # default not found
     
+    # group all anagram together
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        # brute force approach
+        # store ascii total to [] 
+        my_dict = {}
+        for item in strs:
+            current = sum(ord(x) for x in item)
+            if current in my_dict:
+                my_dict[current].append(item)
+            else:
+                my_dict[current] = [item]
+        result = []
+        for k, v in my_dict.items():
+            result.append(v)
+        return result
     
 run = Solution()
 print(run.hasDuplicate([1, 2, 3]))
 print(run.isAnagram("jar", "jam"))
 print(run.twoSum([3, 4, 5, 6], 11))
+print(run.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
