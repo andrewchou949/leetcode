@@ -44,16 +44,28 @@ class Solution:
         # brute force approach
         # store ascii total to [] 
         # might be unreliable due to false positive situation.
+        # my_dict = {}
+        # for item in strs:
+        #     current = sum(ord(x) for x in item)
+        #     if current in my_dict:
+        #         my_dict[current].append(item)
+        #     else:
+        #         my_dict[current] = [item]
+        # result = []
+        # for k, v in my_dict.items():
+        #     result.append(v)
+        # return result
+        
+        # another approach
+        # sorting it first, less error prone!
         my_dict = {}
         for item in strs:
-            current = sum(ord(x) for x in item)
+            current = tuple(sorted(item))
             if current in my_dict:
                 my_dict[current].append(item)
             else:
                 my_dict[current] = [item]
-        result = []
-        for k, v in my_dict.items():
-            result.append(v)
+        result = list(sorted(my_dict.values(), key=lambda x: len(x)))
         return result
     
 run = Solution()
@@ -61,7 +73,3 @@ print(run.hasDuplicate([1, 2, 3]))
 print(run.isAnagram("jar", "jam"))
 print(run.twoSum([3, 4, 5, 6], 11))
 print(run.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
-
-word = "bc"
-current = sum(ord(x) for x in word)
-print(current)
