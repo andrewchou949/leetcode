@@ -60,6 +60,7 @@ class Solution:
         # sorting it first, less error prone!
         my_dict = {}
         for item in strs:
+            # using tuple is better than string, since tuple is immutable
             current = tuple(sorted(item))
             if current in my_dict:
                 my_dict[current].append(item)
