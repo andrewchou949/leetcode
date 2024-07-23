@@ -69,6 +69,9 @@ class Solution:
         result = list(sorted(my_dict.values(), key=lambda x: len(x)))
         return result
     
+    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+        pass
+    
 run = Solution()
 print(run.hasDuplicate([1, 2, 3]))
 print(run.isAnagram("jar", "jam"))
