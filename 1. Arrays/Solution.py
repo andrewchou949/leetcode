@@ -1,4 +1,5 @@
 from collections import defaultdict
+from typing import List
 
 class Solution:
     
@@ -89,12 +90,41 @@ class Solution:
                 if len(result) == k:
                     return result
     
-        
+    # encode decode (facebook question)
+    # for encoding, convert the given list into str with hashed output
+    def encode(self, strs: List[str]) -> str:
+        res = ""
+        # picking len(item) + "#" as delimiter!
+        for item in strs:
+            res += str(len(item)) + "#" + item
+        return res
+    
+    # for decoding, revert the string back to original list
+    def decode(self, s: str) -> List[str]:
+        res, i = [], 0
+        while i < len(s):
+            # looping to find actual length
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i : j])
+            res.append(s[j + 1 : j + 1 + length])
+            i = j + 1 + length
+        return res
             
     
 run = Solution()
+# 1
 print(run.hasDuplicate([1, 2, 3]))
+# 2
 print(run.isAnagram("jar", "jam"))
+# 3
 print(run.twoSum([3, 4, 5, 6], 11))
+# 4
 print(run.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
+# 5
 print(run.topKFrequent([1, 2, 2, 3, 3, 3, 4], 2))
+# 6
+temp = run.encode(["I", "love", "neet", "code"])
+print(temp) # to see encode result
+print(run.decode(temp))
