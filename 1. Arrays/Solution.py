@@ -111,7 +111,20 @@ class Solution:
             res.append(s[j + 1 : j + 1 + length])
             i = j + 1 + length
         return res
-            
+    
+    # return the product of array excluding self 
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res = []
+        total = 1
+        for item in nums:
+            total *= item
+        for item in nums:
+            if item != 0:
+                current = total
+                res.append(current // item)
+            else:
+                res.append(0)
+        return res
     
 run = Solution()
 # 1
@@ -128,3 +141,5 @@ print(run.topKFrequent([1, 2, 2, 3, 3, 3, 4], 2))
 temp = run.encode(["I", "love", "neet", "code"])
 print(temp) # to see encode result
 print(run.decode(temp))
+# 7
+print(run.productExceptSelf([1,2,4,6]))
