@@ -142,4 +142,4 @@ temp = run.encode(["I", "love", "neet", "code"])
 print(temp) # to see encode result
 print(run.decode(temp))
 # 7
-print(run.productExceptSelf([1,2,4,6]))
+print(run.productExceptSelf([-1,0,1,2,3]))
