@@ -114,17 +114,26 @@ class Solution:
     
     # return the product of array excluding self 
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        res = []
-        total = 1
-        for item in nums:
-            total *= item
-        for item in nums:
-            if item != 0:
-                current = total
-                res.append(current // item)
+        prefix = [1 for _ in range(len(nums))]
+        postfix = [1 for _ in range(len(nums))]
+        # going from front to back
+        for i in range(1, len(nums)):
+            prefix[i] = nums[i] * prefix[i - 1]
+        # going from back to front
+        postfix[-1] = nums[-1]
+        for i in range(len(nums) - 2, -1, -1):
+            postfix[i] = nums[i] * postfix[i + 1]
+        output = [1 for _ in range(len(nums))]
+        for i in range(len(nums)):
+            if i == 0:
+                output[i] = 1 * postfix[i + 1]
+            elif i == len(nums) - 1:
+                output[i] = 1 * prefix[i - 1]
             else:
-                res.append(0)
-        return res
+                output[i] = prefix[i - 1] * postfix[i + 1]
+        return output
+        
+            
     
 run = Solution()
 # 1
@@ -142,4 +151,4 @@ temp = run.encode(["I", "love", "neet", "code"])
 print(temp) # to see encode result
 print(run.decode(temp))
 # 7
-print(run.productExceptSelf([-1,0,1,2,3]))
+print(run.productExceptSelf([1,2,3,4]))
