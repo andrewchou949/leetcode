@@ -114,6 +114,7 @@ class Solution:
     
     # return the product of array excluding self 
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        # easy to understand solution
         prefix = [1 for _ in range(len(nums))]
         postfix = [1 for _ in range(len(nums))]
         # going from front to back
@@ -132,6 +133,10 @@ class Solution:
             else:
                 output[i] = prefix[i - 1] * postfix[i + 1]
         return output
+        
+        # mixed solution to save space memory
+        output = [1 for _ in range(len(nums))]
+        
         
             
     
