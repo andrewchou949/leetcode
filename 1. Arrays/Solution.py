@@ -137,6 +137,9 @@ class Solution:
         # mixed solution to save space memory
         output = [1 for _ in range(len(nums))]
         
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        pass
+        
         
             
     
