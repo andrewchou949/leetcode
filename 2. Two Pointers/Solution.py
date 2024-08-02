@@ -30,6 +30,11 @@ class Solution:
                 left += 1
             else:
                 return [left + 1, right + 1]
+    
+    # return a list of triplet possibilities whose sum == 0
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        pass
+        
         
                 
 
