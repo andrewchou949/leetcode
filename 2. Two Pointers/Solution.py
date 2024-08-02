@@ -17,9 +17,24 @@ class Solution:
         return True
     
     # must be O(1) space, dict is not allowed!
+    # numbers is sorted!
+    # one solution is guaranteed!
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        pass
+        left, right = 0, len(numbers) - 1
+        while left <= right:
+            current = numbers[left] + numbers[right]
+            # combination too big, need to decrease result
+            if current > target:
+                right -= 1
+            elif current < target:
+                left += 1
+            else:
+                return [left + 1, right + 1]
+        
+                
 
 run = Solution()
 # 1
 print(run.isPalindrome("Was it a car or a cat I saw?"))
+# 2
+print(run.twoSum([1,2,3,4,5,6,7], 6))
