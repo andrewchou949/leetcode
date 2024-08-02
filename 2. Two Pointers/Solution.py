@@ -15,7 +15,11 @@ class Solution:
             left += 1
             right -= 1
         return True
-        
+    
+    # must be O(1) space, dict is not allowed!
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        pass
 
 run = Solution()
+# 1
 print(run.isPalindrome("Was it a car or a cat I saw?"))
