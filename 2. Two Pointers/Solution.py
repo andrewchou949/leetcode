@@ -33,7 +33,10 @@ class Solution:
     
     # return a list of triplet possibilities whose sum == 0
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        pass
+        res = []
+        for item in nums:
+            pass
+        return res
         
         
                 
